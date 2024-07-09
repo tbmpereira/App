@@ -1,6 +1,5 @@
-from dash import Dash, dcc, html, Input, Output, State, callback, Patch, clientside_callback
+from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
-import plotly.io as pio
 import dash_bootstrap_components as dbc
 from dash_bootstrap_templates import load_figure_template
 import dash_ag_grid as dag
