@@ -2,7 +2,6 @@ from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
 import dash_bootstrap_components as dbc
 from dash_bootstrap_templates import load_figure_template
-import dash_ag_grid as dag
 from data_process import df
 import pandas as pd
 import re
@@ -34,15 +33,6 @@ header = html.Div(
         className="bg-primary"
     )
 )
-
-grid = dag.AgGrid(
-    id="grid",
-    columnDefs=[{"field": i} for i in df.columns],
-    rowData=df.to_dict("records"),
-    defaultColDef={"flex": 1, "minWidth": 120, "sortable": True, "resizable": True, "filter": True},
-    dashGridOptions={"rowSelection":"multiple"},
-)
-
 titulo_controls = html.H4("Use estes controles para filtrar os dados apresentados", className="text-left bg-primary text-white p-2 mb-2", style={"margin": "-15"})
 
 dropdown_unidade = html.Div(
