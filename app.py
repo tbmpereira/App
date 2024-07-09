@@ -484,4 +484,4 @@ def update(unidade="Todas", gde_area="Todas", area_extensao="Todas", tipo=tipos,
     return fig_vinculos, fig_tipo, fig_grande_area, fig_area_extensao, fig_publicos, fig_unidades, fig_socialmedia, n_filtrado
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False, host="0.0.0.0", port=8080)
