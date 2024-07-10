@@ -24,6 +24,8 @@ dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.mi
 app = Dash(__name__, external_stylesheets=[dbc.themes.UNITED, dbc.icons.FONT_AWESOME, dbc_css], title="Mapeamento Divulgação Científica UFMG",
            suppress_callback_exceptions=True)
 
+server = app.server
+
 header = html.Div(
     dbc.Row(
         [
