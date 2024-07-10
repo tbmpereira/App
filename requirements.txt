@@ -5,3 +5,4 @@ dash-bootstrap-templates
 pandas
 plotly-express
 gunicorn
+unidecode
