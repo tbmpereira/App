@@ -10,7 +10,7 @@ WORKDIR $APP_HOME
 
 # Install production dependencies and Gunicorn
 ADD requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt & pip install --no-cache-dir gunicorn
+RUN pip install --no-cache-dir -r requirements.txt && pip install --no-cache-dir gunicorn
 RUN groupadd -r app && useradd -r -g app app
 
 # Copy the rest of the codebase into the image
