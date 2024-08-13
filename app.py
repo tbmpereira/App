@@ -21,7 +21,7 @@ vinculos = df.vinculo.unique().tolist()
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.UNITED, dbc.icons.FONT_AWESOME, dbc_css], title="Mapeamento Divulgação Científica UFMG",
-           suppress_callback_exceptions=True)
+           suppress_callback_exceptions=True, requests_pathname_prefix='/proex/ploty/')
 
 server = app.server
 
