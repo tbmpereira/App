@@ -2,22 +2,24 @@
 # https://hub.docker.com/_/python
 FROM python:3.11-slim-buster
 
-# Copy local code to the container image.
-ENV APP_HOME /app
-ENV PYTHONUNBUFFERED True
+# Set environment variables
+ENV APP_HOME=/app \
+    PYTHONUNBUFFERED=True \
+    PORT=8000  # Defina a porta padrão aqui, se necessário
+
+# Copy local code to the container image
 WORKDIR $APP_HOME
 
-
 # Install production dependencies and Gunicorn
-ADD requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt && pip install --no-cache-dir gunicorn
-RUN groupadd -r app && useradd -r -g app app
+COPY requirements.txt .  # Use COPY ao invés de ADD, que é mais específico para arquivos
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir gunicorn
 
-# Copy the rest of the codebase into the image
+# Create a non-root user and switch to it
+RUN groupadd -r app && useradd -r -g app app
 COPY --chown=app:app . ./
 
 USER app
 
-# Run the web service on container startup. Here we use the gunicorn webserver, with one worker process and 8 threads.
-# For environments with multiple CPU cores, increase the number of workers to be equal to the cores available.
-CMD exec gunicorn --bind :$PORT --log-level info --workers 1 --threads 8 --timeout 0 app:server
+# Run the web service on container startup using gunicorn
+CMD ["gunicorn", "--bind", ":$PORT", "--log-level", "info", "--workers", "1", "--threads", "8", "--timeout", "0", "app:server"]
