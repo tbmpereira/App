@@ -1,16 +1,18 @@
-# Projeto de Mapeamento da Divulgação Científica
+# Dashboard de Mapeamento da Divulgação Científica
 
-Este é um dashboard interativo escrito a partir da biblioteca plotly para visualizar os resultados do questionário de Mapeamento de Divulgação Científica da UFMG. Maiores informações sobre o questionário podem ser encontradas [aqui](https://www.ufmg.br/proex/noticia/participe-do-mapeamento-da-divulgacao-cientifica-na-ufmg/).
+Este repositório contém o código para um dashboard interativo desenvolvido com Python e Plotly Dash, criado para visualizar os resultados do questionário de Mapeamento da Divulgação Científica da UFMG. Para mais informações sobre o questionário acesse [este link](https://www.ufmg.br/proex/noticia/participe-do-mapeamento-da-divulgacao-cientifica-na-ufmg/).
 
 O dashboard permite filtrar os resultados por algumas variáveis selecionadas.
 
-## Instalação
+## Instalação e Execução
 
 1. Clone este repositório em sua máquina local.
-2. Certifique-se de ter o Python 3 instalado.
-3. Crie um ambiente virtual e ative-o.
-4. Instale as dependências do projeto executando o comando `pip install -r requirements.txt`.
-5. Execute o arquivo `main.py` para iniciar o projeto.
+2. Certifique-se de ter o Docker instalado.
+3. Construa a imagem Docker utilizando o Dockerfile fornecido:
+   `docker build -t nome-da-imagem`
+4. Execute o contêiner Docker, substituindo <PORT> pela porta que você deseja expor (por exemplo, 8050):
+   `docker run -e PORT=<PORT> -p <PORT>:<PORT> nome-da-imagem`
+5. Acesse o dashboard no navegador em http://localhost:<PORT>.
 
 
 ## Email para colaboração ou sugestões
