@@ -3,9 +3,9 @@
 FROM python:3.11-slim-buster
 
 # Set environment variables
-ENV APP_HOME=/app \
-    PYTHONUNBUFFERED=True \
-    PORT=8000
+ENV APP_HOME=/app
+ENV PYTHONUNBUFFERED=True
+ENV PORT=8000
 
 # Copy local code to the container image
 WORKDIR $APP_HOME
