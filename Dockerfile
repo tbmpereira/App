@@ -5,13 +5,13 @@ FROM python:3.11-slim-buster
 # Set environment variables
 ENV APP_HOME=/app \
     PYTHONUNBUFFERED=True \
-    PORT=8000  # Defina a porta padrão aqui, se necessário
+    PORT=8000
 
 # Copy local code to the container image
 WORKDIR $APP_HOME
 
 # Install production dependencies and Gunicorn
-COPY requirements.txt .  # Use COPY ao invés de ADD, que é mais específico para arquivos
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt && \
     pip install --no-cache-dir gunicorn
 
