@@ -20,8 +20,8 @@ vinculos = df.vinculo.unique().tolist()
 # stylesheet with the .dbc class to style  dcc, DataTable and AG Grid components with a Bootstrap theme
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.UNITED, dbc.icons.FONT_AWESOME, dbc_css], title="Mapeamento Divulgação Científica UFMG",
-           suppress_callback_exceptions=True)
+app = Dash(__name__, external_stylesheets=[dbc.themes.UNITED, dbc.icons.FONT_AWESOME, dbc_css], requests_pathname_prefix='/proex/mapa_dc/',
+           title="Mapeamento Divulgação Científica UFMG", suppress_callback_exceptions=True)
 
 #Expose Flask instance for gunicorn
 server = app.server
