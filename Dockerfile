@@ -22,4 +22,4 @@ COPY --chown=app:app . ./
 USER app
 
 # Run the web service on container startup using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--log-level", "info", "--workers", "1", "--threads", "8", "--timeout", "0", "--prefix-application-prefix", "/proex/mapa_dc", "app:server"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--log-level", "info", "--workers", "1", "--threads", "8", "--timeout", "0", "app:server"]
